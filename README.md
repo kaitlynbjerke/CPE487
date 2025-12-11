@@ -1,4 +1,4 @@
-# Engineering Design VI
+# Digital System Design
 ## CPE322, Spring 2025
 ### **Kaitlyn Bjerke, Jacqueline Castro, Gianina Maldonado**
 
