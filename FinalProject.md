@@ -56,7 +56,7 @@ After performing all these steps, the game should be displayed on the monitor.
 
 **Inputs and Outputs**
 
-vga_grid
+**vga_grid**
 ```
 ENTITY vga_grid IS
     GENERIC (
@@ -97,11 +97,51 @@ Outputs for vga_grid:
 - vga_r: 3-bit red color channel output for VGA
 - vga_g: 3-bit green color channel output for VGA
 - vga_b: 3-bit blue color channel output for VGA
-- vga_hsync: Horizontal synchronization signal required by the VGA standard
-- vga_vsync: Vertical synchronization signal required by the VGA standard
+- vga_hsync: horizontal synchronization signal required by the VGA standard
+- vga_vsync: vertical synchronization signal required by the VGA standard
 
 
-v
+**vga_sync**
+```
+ COMPONENT vga_sync
+        PORT (
+            pixel_clk : IN STD_LOGIC;
+            red_in    : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+            green_in  : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+            blue_in   : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+            red_out   : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+            green_out : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+            blue_out  : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+            hsync     : OUT STD_LOGIC;
+            vsync     : OUT STD_LOGIC;
+            pixel_row : OUT STD_LOGIC_VECTOR(10 DOWNTO 0);
+            pixel_col : OUT STD_LOGIC_VECTOR(10 DOWNTO 0)
+        );
+    END COMPONENT;
+```
+Inputs for vga_sync:
+- pixel_clk: pixel clock used to drive VGA timing
+- red_in: 4-bit red color input for the current pixel
+- green_in: 4-bit green color input for the current pixel
+- blue_in: 4-bit blue color input for the current pixel
+
+Outputs for vga_sync:
+- red_out: 4-bit red color output synchronized with VGA timing
+- green_out: 4-bit green color output synchronized with VGA timing
+- blue_out: 4-bit blue color output synchronized with VGA timing
+- hsync: horizontal synchronization signal required by the VGA standard
+- vsync: vertical synchronization signal required by the VGA standard
+- pixel_row: current vertical pixel position on the screen
+- pixel_col: current horizontal pixel position on the screen
+
+
+**plant**
+
+**bullet**
+
+**zombie**
+
+
 
 
 
