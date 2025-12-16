@@ -1,4 +1,4 @@
-# Circles Vs Squares - CPE 487 Final Project
+# Circles vs. Squares - CPE 487 Final Project
 **By Kaitlyn Bjerke, Jacqueline Castro, and Gianina Maldonado**
 
 A tower defense game, based on Plants Vs Zombies
@@ -7,15 +7,15 @@ A tower defense game, based on Plants Vs Zombies
 
 ## Introduction
 
-For our final project, we were tasked with creating a game using the VHDL language. This project allowed us to test our knowledge of VHDL while also expanding into topics that were not covered extensively in class. For our game, we decided to mimic the functional mechanics of Plants vs. Zombies. To recreate this concept, we developed a game titled **Circles vs. Squares**, where circles represent the plants and squares represent the zombies. 
+For our final project, we were tasked with creating a game using the VHDL language. This project allowed us to test our knowledge of VHDL while also expanding into topics that were not covered extensively in class. For our game, we decided to mimic the functional mechanics of Plants vs. Zombies. To recreate this concept, we developed a game titled **Circles vs. Squares**, where circles represent the plants and squares represent the zombies. Note, much of our code refers to the entities as plants and zombies, but to match what is displayed, the game is titled **Circles vs. Squares**!
 
 [image of plants vs zombies]
 
 We considered various game mechanics from Plants Vs Zombies, including:
 
-- Defensive Units (circles)
-- Offensive Units (squares)
-- Projectile system
+- Defensive Units (circles/plants)
+- Offensive Units (squares/zombies)
+- Projectile system (bullet)
 - Health system
 - Attack timing
 - Collision
@@ -248,7 +248,21 @@ Outputs for zombie:
 - zom_loc_y: current vertical position of the zombie in pixels
 
 ---
+## Project in Action!
 
+[project in action[
+
+## The Process
+
+Although we used some logic from previous labs, we did not do a continuation project and instead made this game from scratch. To begin, we assessed the various aspects of the original game we needed to implement into our game as listed in the **Introduction**. In order to match the same game mechanics, we decided to begin with creating a grid on the screen. This grid functions to easily display where the plants can be placed, outlines the path the zombie and bullet will travel through, and generally matches the background of the original game. This initial grid showed to be a big obstacle for us. At first, it would not display on the screen, and it came out a bit wonky when it did eventually display. Meanwhile, the initial plant entity and zombie entity were being created as to not fall too behind with the grid. Since these three were done individually, we found there to be many inconsistencies with sizes, speeds, colors, etc. This impacted the functionality of the game. 
+
+[image of grid inconsistency]
+
+[image of early plant and zombie]
+
+Before combining all the code, we made sure all entities worked individually and then began matching every entity to one another for visualization and functionality. After a few runs, we were able to get a working game where a plant and zombie in motion were displayed on top of the grid.
+
+[image of plant and zombie on grid]
 
 
 
