@@ -54,4 +54,54 @@ After performing all these steps, the game should be displayed on the monitor.
 
 ---
 
+**Inputs and Outputs**
+
+vga_grid
+```
+ENTITY vga_grid IS
+    GENERIC (
+        SQUARE_SIZE    : INTEGER := 100;  -- size of each grid square in pixels
+        LINE_THICKNESS : INTEGER := 2    -- thickness of grid lines in pixels
+    );
+    PORT (
+        clk         : IN  STD_LOGIC; -- 100 MHz board clock
+        reset_n     : IN  STD_LOGIC;
+        -- VGA outputs (3 bits per channel)
+        vga_r       : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+        vga_g       : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+        vga_b       : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+        vga_hsync   : OUT STD_LOGIC;
+        vga_vsync   : OUT STD_LOGIC;
+        btnl : IN STD_LOGIC;
+        btnr : IN STD_LOGIC;
+        btnc : IN STD_LOGIC;
+        btnu : IN STD_LOGIC;
+        btnd : IN STD_LOGIC
+    );
+END ENTITY;
+```
+Generics for vga_grid:
+- square_size: defines the width and height of every square within the grid (in pixels)
+- line_thickness: specifies the thickness of the lining of the grid (in pixels)
+
+Inputs for vga_grid:
+- clk: the system clock, drives VGA timing logic and internal state machines
+- reset_n: active-low reset signal, resets the VGA controller and internal logic to a known initial state
+- btnl: input button used to move cursor left
+- btnr: input button used to move cursor right
+- btnc: input button used to select/confirm
+- btnu: input button used to move cursor up
+- btnd: input button used to move cursor down
+
+Outputs for vga_grid:
+- vga_r: 3-bit red color channel output for VGA
+- vga_g: 3-bit green color channel output for VGA
+- vga_b: 3-bit blue color channel output for VGA
+- vga_hsync: Horizontal synchronization signal required by the VGA standard
+- vga_vsync: Vertical synchronization signal required by the VGA standard
+
+
+v
+
+
 
