@@ -210,8 +210,44 @@ Outputs for bullet:
 
 **zombie**
 ```
-
+ COMPONENT ball
+        PORT (
+            v_sync     : IN STD_LOGIC;
+            pixel_row  : IN STD_LOGIC_VECTOR(10 DOWNTO 0);
+            pixel_col  : IN STD_LOGIC_VECTOR(10 DOWNTO 0);
+            red        : OUT STD_LOGIC;
+            green      : OUT STD_LOGIC;
+            blue       : OUT STD_LOGIC;
+            zom_enable : IN STD_LOGIC;
+            zom_damage : IN STD_LOGIC;
+            attack     : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+            zom_alive  : OUT STD_LOGIC;
+            zom_health : OUT STD_LOGIC_VECTOR(9 DOWNTO 0);
+            zom_loc_x    : OUT INTEGER RANGE 0 TO 1023;
+            zom_loc_y    : OUT INTEGER RANGE 0 TO 1023;
+            offset     : IN INTEGER RANGE 0 TO 1023
+        );
+    END COMPONENT;
 ```
+Inputs for zombie:
+- v_sync: vertical synchronization signal from the VGA controller
+- pixel_row: current vertical pixel coordinate being drawn
+- pixel_col: current horizontal pixel coordinate being drawn
+- zom_enable: enables the zombie
+- zom_damage: indicates that the zombie has taken damage
+- attack: the amount of damage inflicted on the zombie when zom_damage is asserted
+- offset: positional offset value used to control the zombie’s horizontal placement and movement timing
+
+Outputs for zombie:
+- red: red color output for the zombie at the current pixel location
+- green: green color output for the zombie at the current pixel location
+- blue: blue color output for the zombie at the current pixel location
+- zom_alive: indicates whether the zombie is still alive
+- zome_health: current health value of the zombie
+- zom_loc_x: current horizontal position of the zombie in pixels
+- zom_loc_y: current vertical position of the zombie in pixels
+
+---
 
 
 
