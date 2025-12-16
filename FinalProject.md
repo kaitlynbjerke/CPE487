@@ -264,5 +264,9 @@ Before combining all the code, we made sure all entities worked individually and
 
 [image of plant and zombie on grid]
 
+Now that we were able to get a basic display, we had to tackle evolving the plant and zombie to meet the requirements of more complexity. We also began to work on the bullet entity. For the plant and zombie, we implemented health, taking damage, and attacks. We also implemented enabling inputs and positioning outputs. From these additions, we were able to include collision which is a key part of the game's functionality. This will be expanded on later in the project.
+
+Nextly, we worked on getting the plant to move based on the user's input. This is where the btnl, btnr, btnu, btnd, and btnc button come into play as the user chooses where to place their defenses. We had to make sure that when the user was moving the plant in multiple directions, the plant was moving a whole grid square, not just a pixel. Moreover, when the user had chosen where there wished to place their plant, the btnc button confirms their position. But, we needed to implement multiple plants, so after the user sets down a plant, the user can immediately place down another plant. However, the user cannot have an infinite number of plants, so we limited the user to a total of 5 plants. 
+
 
 
