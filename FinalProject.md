@@ -5,7 +5,7 @@ A tower defense game, based on Plants Vs Zombies
 
 ---
 
-**Introduction**
+## Introduction
 
 For our final project, we were tasked with creating a game using the VHDL language. This project allowed us to test our knowledge of VHDL while also expanding into topics that were not covered extensively in class. For our game, we decided to mimic the functional mechanics of Plants vs. Zombies. To recreate this concept, we developed a game titled **Circles vs. Squares**, where circles represent the plants and squares represent the zombies. 
 
@@ -26,7 +26,7 @@ In addition, we aimed to include various types of defensive and offensive units,
 
 [diagram]
 
-**How To Setup the Game**
+## How To Setup the Game
 
 The required hardware are listed below:
 - Nexys A7-100T FPGA Board
@@ -54,7 +54,7 @@ After performing all these steps, the game should be displayed on the monitor.
 
 ---
 
-**Inputs and Outputs**
+## Inputs and Outputs
 
 **vga_grid**
 ```
