@@ -136,11 +136,52 @@ Outputs for vga_sync:
 
 
 **plant**
+```
+ COMPONENT plant
+        PORT (
+            v_sync       : IN STD_LOGIC;
+            pixel_row    : IN STD_LOGIC_VECTOR(10 DOWNTO 0);
+            pixel_col    : IN STD_LOGIC_VECTOR(10 DOWNTO 0);
+            plant_enable : IN STD_LOGIC;
+            take_damage  : IN STD_LOGIC;
+            damage_amt   : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+            shoot_enable : IN STD_LOGIC;
+            --plant_alive  : OUT STD_LOGIC;
+            --health       : OUT STD_LOGIC_VECTOR(9 DOWNTO 0);
+            red          : OUT STD_LOGIC;
+            green        : OUT STD_LOGIC;
+            blue         : OUT STD_LOGIC;
+            start_x        : in integer;
+            start_y         : in integer
+        );
+    END COMPONENT;
+```
+Inputs for plant:
+- v_sync: vertical synchronization signal from the VGA controller
+- pixel_row: current vertical pixel coordinate being drawn on the screen
+- pixel_col: current horizontal pixel coordinate being drawn on the screen
+- plant_enable: enables or disables the plant
+- take_damage: indicates that the plant has been hit by an offensive unit
+- shoot_enable: specifying how much damage the plant takes when take_damage is asserted
+- start_x: horizontal starting position of the plant (in pixels)
+- start_y: vertical starting position of the plant (in pixels)
+
+Outputs for plant:
+- plant_alive: indicates whether plant is alive or not
+- health: health status of plant
+- red: red color output for the plant at the current pixel location
+- green: green color output for the plant at the current pixel location
+- blue: blue color output for the plant at the current pixel location
 
 **bullet**
+```
+
+```
 
 **zombie**
+```
 
+```
 
 
 
