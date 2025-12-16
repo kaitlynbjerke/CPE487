@@ -175,8 +175,38 @@ Outputs for plant:
 
 **bullet**
 ```
-
+COMPONENT bullet
+        PORT (
+            v_sync       : IN STD_LOGIC;
+            pixel_row    : IN STD_LOGIC_VECTOR(10 DOWNTO 0);
+            pixel_col    : IN STD_LOGIC_VECTOR(10 DOWNTO 0);
+            bullet_enable : IN STD_LOGIC;  -- '1' to spawn/activate bullet
+            start_x       : IN STD_LOGIC_VECTOR(10 DOWNTO 0);  -- Starting X position
+            start_y       : IN STD_LOGIC_VECTOR(10 DOWNTO 0);  -- Starting Y position
+            bullet_active : OUT STD_LOGIC;  -- '1' when bullet is active/visible
+            bullet_x_pos  : OUT STD_LOGIC_VECTOR(10 DOWNTO 0);  -- Current X position
+            bullet_y_pos  : OUT STD_LOGIC_VECTOR(10 DOWNTO 0);  -- Current Y position
+            red          : OUT STD_LOGIC;
+            green        : OUT STD_LOGIC;
+            blue         : OUT STD_LOGIC
+        );
+    END COMPONENT;
 ```
+Inputs for bullet:
+- v_sync: vertical synchronization signal from the VGA controller
+- pixel_row: current vertical pixel coordinate being drawn
+- pixel_col: current horizontal pixel coordinate being drawn
+- bullet_enable: activates bullet
+- start_x: initial horizontal position of the bullet in pixels
+- start_y: initial vertical position of the bullet in pixels
+
+Outputs for bullet:
+- bullet_active: indicates whether the bullet is currently active
+- bullet_x_pos: current horizontal pixel position of the bullet
+- bullet_y_pos: current vertical pixel position of the bullet
+- red: red color output for the bullet at the current pixel location
+- green: green color output for the bullet at the current pixel location
+- blue: blue color output for the bullet at the current pixel location
 
 **zombie**
 ```
