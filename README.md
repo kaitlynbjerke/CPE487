@@ -1,5 +1,5 @@
 # Digital System Design
-## CPE322, Spring 2025
+## CPE 487, Spring 2025
 ### **Kaitlyn Bjerke, Jacqueline Castro, Gianina Maldonado**
 
 About Us
