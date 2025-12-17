@@ -31,7 +31,9 @@ In addition, we aimed to include various types of defensive and offensive units,
 <p align="center">
   <img src="https://github.com/user-attachments/assets/bb3d8d29-7eee-4809-8941-d34550d74774" width="800">
 </p>
-
+<p align="center">
+  <img src="https://github.com/kaitlynbjerke/Images/blob/main/Blank%20diagram%20(7).png" width="800">
+</p>
 
 **How To Setup the Game**
 
