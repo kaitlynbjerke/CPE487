@@ -76,7 +76,9 @@ ENTITY vga_grid IS
         btnr : IN STD_LOGIC;
         btnc : IN STD_LOGIC;
         btnu : IN STD_LOGIC;
-        btnd : IN STD_LOGIC
+        btnd : IN STD_LOGIC;
+        hard: IN STD_LOGIC;
+        pass : out std_logic:='0'
     );
 END ENTITY;
 ```
@@ -92,6 +94,7 @@ Inputs for vga_grid:
 - btnc: input button used to select/confirm
 - btnu: input button used to move cursor up
 - btnd: input button used to move cursor down
+- hard: difficulty control input
 
 Outputs for vga_grid:
 - vga_r: 3-bit red color channel output for VGA
@@ -99,6 +102,7 @@ Outputs for vga_grid:
 - vga_b: 3-bit blue color channel output for VGA
 - vga_hsync: horizontal synchronization signal required by the VGA standard
 - vga_vsync: vertical synchronization signal required by the VGA standard
+- pass: status output signal
 
 
 **vga_sync**
@@ -146,13 +150,12 @@ Outputs for vga_sync:
             take_damage  : IN STD_LOGIC;
             damage_amt   : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
             shoot_enable : IN STD_LOGIC;
-            --plant_alive  : OUT STD_LOGIC;
-            --health       : OUT STD_LOGIC_VECTOR(9 DOWNTO 0);
             red          : OUT STD_LOGIC;
             green        : OUT STD_LOGIC;
             blue         : OUT STD_LOGIC;
             start_x        : in integer;
-            start_y         : in integer
+            start_y         : in integer;
+            num             : in integer
         );
     END COMPONENT;
 ```
@@ -165,10 +168,9 @@ Inputs for plant:
 - shoot_enable: specifying how much damage the plant takes when take_damage is asserted
 - start_x: horizontal starting position of the plant (in pixels)
 - start_y: vertical starting position of the plant (in pixels)
+- num: identifies plant instance
 
 Outputs for plant:
-- plant_alive: indicates whether plant is alive or not
-- health: health status of plant
 - red: red color output for the plant at the current pixel location
 - green: green color output for the plant at the current pixel location
 - blue: blue color output for the plant at the current pixel location
@@ -188,7 +190,8 @@ COMPONENT bullet
             bullet_y_pos  : OUT STD_LOGIC_VECTOR(10 DOWNTO 0);  -- Current Y position
             red          : OUT STD_LOGIC;
             green        : OUT STD_LOGIC;
-            blue         : OUT STD_LOGIC
+            blue         : OUT STD_LOGIC;
+            placed       : in std_logic
         );
     END COMPONENT;
 ```
@@ -199,6 +202,7 @@ Inputs for bullet:
 - bullet_enable: activates bullet
 - start_x: initial horizontal position of the bullet in pixels
 - start_y: initial vertical position of the bullet in pixels
+- placed: indicates whether bullet has been placed
 
 Outputs for bullet:
 - bullet_active: indicates whether the bullet is currently active
@@ -226,6 +230,10 @@ Outputs for bullet:
             zom_loc_x    : OUT INTEGER RANGE 0 TO 1023;
             zom_loc_y    : OUT INTEGER RANGE 0 TO 1023;
             offset     : IN INTEGER RANGE 0 TO 1023
+            start_x        : in integer;
+            start_y         : in integer;
+            hit_count       : in integer range 0 to 1023;
+            hard            : std_logic
         );
     END COMPONENT;
 ```
@@ -237,6 +245,10 @@ Inputs for zombie:
 - zom_damage: indicates that the zombie has taken damage
 - attack: the amount of damage inflicted on the zombie when zom_damage is asserted
 - offset: positional offset value used to control the zombie’s horizontal placement and movement timing
+- start_x: specifies the initial horizontal position of the zombie 
+- start_y: specifies the initial vertical position of the zombie
+- hit_count: tracks the number of times the zombie has been hit by projectiles
+- hard: difficulty control signal
 
 Outputs for zombie:
 - red: red color output for the zombie at the current pixel location
@@ -264,9 +276,9 @@ Before combining all the code, we made sure all entities worked individually and
 
 [image of plant and zombie on grid]
 
-Now that we were able to get a basic display, we had to tackle evolving the plant and zombie to meet the requirements of more complexity. We also began to work on the bullet entity. For the plant and zombie, we implemented health, taking damage, and attacks. We also implemented enabling inputs and positioning outputs. From these additions, we were able to include collision which is a key part of the game's functionality. This will be expanded on later in the project.
+Now that we were able to get a basic display, we had to tackle evolving the plant and zombie to involve more complexity. We also began to work on the bullet entity. For the plant and zombie, we implemented health, taking damage, and attacks. We also implemented enabling inputs and positioning outputs. From these additions, we were able to include collision which is a key part of the game's functionality. This will be expanded on later in the project.
 
-Nextly, we worked on getting the plant to move based on the user's input. This is where the btnl, btnr, btnu, btnd, and btnc button come into play as the user chooses where to place their defenses. We had to make sure that when the user was moving the plant in multiple directions, the plant was moving a whole grid square, not just a pixel. Moreover, when the user had chosen where there wished to place their plant, the btnc button confirms their position. But, we needed to implement multiple plants, so after the user sets down a plant, the user can immediately place down another plant. However, the user cannot have an infinite number of plants, so we limited the user to a total of 5 plants. 
+Nextly, we worked on getting the plant to move based on the user's input. This is where the btnl, btnr, btnu, btnd, and btnc button come into play as the user chooses where to place their defenses. We had to make sure that when the user was moving the plant in multiple directions, the plant was moving a whole grid square, not just a pixel. Moreover, when the user had chosen where they wished to place their plant, the btnc button confirms their position. But, we needed to implement multiple plants, so after the user sets down a plant, the user can immediately place down another plant. This is where we were able to create two types of plants. The first plant is the walnut, which the user is given first and it essentially acts as a buffer or wall, it does not cause damage to the zombies. We set the walnut to be able to withstand The second plant is the pea shooter, which is the plant that actually causes damage to the zombies. 
 
 
 
