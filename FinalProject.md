@@ -9,7 +9,9 @@ A tower defense game, based on Plants Vs Zombies
 
 For our final project, we were tasked with creating a game using the VHDL language. This project allowed us to test our knowledge of VHDL while also expanding into topics that were not covered extensively in class. For our game, we decided to mimic the functional mechanics of Plants vs. Zombies. To recreate this concept, we developed a game titled **Circles vs. Squares**, where circles represent the plants and squares represent the zombies. Note, much of our code refers to the entities as plants and zombies, but to match what is displayed, the game is titled **Circles vs. Squares**!
 
-[image of plants vs zombies]
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/75d1800f-c6dc-4ded-8498-f81c6ad8458e" width="500">
+</p>
 
 We considered various game mechanics from Plants Vs Zombies, including:
 
@@ -24,9 +26,14 @@ We considered various game mechanics from Plants Vs Zombies, including:
 
 In addition, we aimed to include various types of defensive and offensive units, as well as adjustable game difficulty. Our primary focus was basic functionality, specifically that defensive units could attack offensive units to prevent them from reaching the home base. Another critical aspect of the game was allowing the user to choose where to place defensive units. Overall, the expected gameplay involves circles shooting projectiles at advancing squares, with each entity having a set amount of health and being eliminated once that health is depleted. The user interacts with the game by strategically placing defensive units to stop the offensive units from reaching the base.
 
-[diagram]
+**Block Diagram**
 
-## How To Setup the Game
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/bb3d8d29-7eee-4809-8941-d34550d74774" width="800">
+</p>
+
+
+**How To Setup the Game**
 
 The required hardware are listed below:
 - Nexys A7-100T FPGA Board
