@@ -32,7 +32,7 @@ In addition, we aimed to include various types of defensive and offensive units,
   <img src="https://github.com/user-attachments/assets/bb3d8d29-7eee-4809-8941-d34550d74774" width="800">
 </p>
 
-**Source Diagram**
+**Code Heirarchy**
 <p align="center">
   <img src="https://github.com/kaitlynbjerke/Images/blob/main/Blank%20diagram%20(7).png" width="800">
 </p>
@@ -120,7 +120,7 @@ Outputs for vga_grid:
 - vga_b: 3-bit blue color channel output for VGA
 - vga_hsync: horizontal synchronization signal required by the VGA standard
 - vga_vsync: vertical synchronization signal required by the VGA standard
-- pass: status output signal
+- pass: status output signal (goes to '1' if user wins)
 
 
 **vga_sync**
@@ -251,7 +251,8 @@ Outputs for bullet:
             start_x        : in integer;
             start_y         : in integer;
             hit_count       : in integer range 0 to 1023;
-            hard            : std_logic
+            hard            : std_logic;
+            started         : in std_logic
         );
     END COMPONENT;
 ```
@@ -267,6 +268,7 @@ Inputs for zombie:
 - start_y: specifies the initial vertical position of the zombie
 - hit_count: tracks the number of times the zombie has been hit by projectiles
 - hard: difficulty control signal
+- started: indicates if the user has gotten past the start screen
 
 Outputs for zombie:
 - red: red color output for the zombie at the current pixel location
@@ -276,6 +278,8 @@ Outputs for zombie:
 - zom_health: current health value of the zombie
 - zom_loc_x: current horizontal position of the zombie in pixels
 - zom_loc_y: current vertical position of the zombie in pixels
+
+The __clk_wiz 0__ and __clk_wiz_0_clk_wiz__ remain unchanged from the files provided in class
 
 ---
 ## Project in Action!
@@ -329,6 +333,6 @@ We did encounter tons of challenges when creating this game. One of our most tim
 
 From there, we built a layered rendering process: the grid acts as the base layer, followed by plants, and finally zombies taking priority over everything else. This was made possible by using intermediate color signals and a VGA sync module to properly coordinate all the visual elements. While the plant entity did display on top of the grid, it often clashed with the grid background, causing flickering lines or misalignment. We later learned that was because we had hard-coded a specific 'step size' for the plant entity to handle user input, and that size conflicted with the actual dimensions of the grid squares. Once we synchronized the movement increments with the grid's square size, the plant finally snapped into place and the flickering lines disappeared. 
 
-Another issue we had was implementing sun currency so that the user can "buy" various plants, so we did scrap that idea in order to focus on more important mechanics. Instead, we simply gave the user 10 plants (5 of each type) to use against the zombies. With more time, we would've love to further build on the currency aspect. As for level difficulty, we had intended on creating a random number generator to randomly generate the number of zombies that spawned, but we were not able to finalize the generator in time. Instead, we were able to use the switch on the FPGA board to switch between easy and hard. Easy mode included slower and weaker zombies, meanwhile hard mode included slightly faster and stronger zombies. 
+Another issue we had was implementing sun currency so that the user can "buy" various plants, so we did scrap that idea in order to focus on more important mechanics. Instead, we simply gave the user a set amount of plants to use against the zombies. With more time, we would've love to further build on the currency aspect. As for level difficulty, we had intended on creating a random number generator to randomly generate the number of zombies that spawned, but we were not able to finalize the generator in time. Instead, we were able to use the switch on the FPGA board to switch between easy and hard. Easy mode included slower and weaker zombies, meanwhile hard mode included slightly faster and stronger zombies. 
 
-Lastly, we encountered many tiny errors including flickering plants, the bullet constantly colliding with the zombie, the cursor disappearing, the bullet being shot in the wrong row, and other functions not working how we wished they would. The root for a lot of these bugs ended up being that the synchronization was not aligned for every entity so the clock was, at times, faster than the clock for others. So, we algined as many entities as possible to the pixel clock. Going forward, we would love to add harder levels, the random number generator, sun currency, and overall enhancing the visual look of the game.
+Lastly, we encountered many tiny errors including flickering plants, the bullet not firing in consistent time intervals, the cursor disappearing, the bullet being shot in the wrong row, and other functions not working how we wished they would. The root for a lot of these bugs ended up being that the synchronization was not aligned for every entity so the clock was, at times, faster than the clock for others. So, we algined as many entities as possible to the pixel clock. Going forward, we would love to add harder levels, the random number generator, sun currency, and overall enhancing the visual look of the game.
