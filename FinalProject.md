@@ -324,9 +324,9 @@ Ultimately, we had a lot of fun creating this project! We were able to truly evo
 * Jacqueline was responsible for outlining game mechanics, the zombie entity, the random number generator (although not included in the final code), and the GitHub entry.
 
 **Timeline**
-- November 11th - 14th: Brainstorming project ideas including the required functions and theoreticsl excecutions.
+- November 11th - 14th: Brainstorming project ideas including the required functions and theoretical executions.
 - November 18th - 20th: Project idea selected! outlining game characters, rules, and other basic information. Initial grid code is created.
-- November 21st - 25th: Grid code continues being developed, intial plant entity is created, initial zombie entity is created.
+- November 21st - 25th: Grid code continues being developed, initial plant entity is created, initial zombie entity is created.
 - November 26th - 30th: Grid, plant, and zombie continue being developed.
 - December 1st - 5th: Testing and debugging for all entities.
 - December 8th - 12th: More game mechanics are implemented, continued testing and debugging.
@@ -338,4 +338,4 @@ From there, we built a layered rendering process: the grid acts as the base laye
 
 Another issue we had was implementing sun currency so that the user can "buy" various plants, so we did scrap that idea in order to focus on more important mechanics. Instead, we simply gave the user a set amount of plants to use against the zombies. With more time, we would've love to further build on the currency aspect. As for level difficulty, we had intended on creating a random number generator to randomly generate the number of zombies that spawned, but we were not able to finalize the generator in time. Instead, we were able to use the switch on the FPGA board to switch between easy and hard. Easy mode included slower and weaker zombies, meanwhile hard mode included slightly faster and stronger zombies. 
 
-Lastly, we encountered many tiny errors including flickering plants, the bullet not firing in consistent time intervals, the cursor disappearing, the bullet being shot in the wrong row, and other functions not working how we wished they would. The root for a lot of these bugs ended up being that the synchronization was not aligned for every entity so the clock was, at times, faster than the clock for others. So, we algined as many entities as possible to the pixel clock. Going forward, we would love to add harder levels, the random number generator, sun currency, and overall enhancing the visual look of the game.
+Lastly, we encountered many tiny errors including flickering plants, the bullet not firing in consistent time intervals, the cursor disappearing, the bullet being shot in the wrong row, and other functions not working how we wished they would. The root for a lot of these bugs ended up being that the synchronization was not aligned for every entity so the clock was, at times, faster than the clock for others. So, we aligned as many entities as possible to the pixel clock. Going forward, we would love to add harder levels, the random number generator, sun currency, and overall enhancing the visual look of the game.
