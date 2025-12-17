@@ -275,13 +275,16 @@ Outputs for zombie:
 
 Although we used some logic from previous labs, we did not do a continuation project and instead made this game from scratch. To begin, we assessed the various aspects of the original game we needed to implement into our game as listed in the **Introduction**. In order to match the same game mechanics, we decided to begin with creating a grid on the screen. This grid functions to easily display where the plants can be placed, outlines the path the zombie and bullet will travel through, and generally matches the background of the original game. This initial grid showed to be a big obstacle for us. At first, it would not display on the screen, and it came out a bit wonky when it did eventually display. Meanwhile, the initial plant entity and zombie entity were being created as to not fall too behind with the grid. Since these three were done individually, we found there to be many inconsistencies with sizes, speeds, colors, etc. This impacted the functionality of the game. 
 
-[image of grid inconsistency]
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/e52e7779-85bb-4dc0-9952-92908b506789" width="300">
+</p>
 
-[image of early plant and zombie]
 
 Before combining all the code, we made sure all entities worked individually and then began matching every entity to one another for visualization and functionality. After a few runs, we were able to get a working game where a plant and zombie in motion were displayed on top of the grid.
 
-[image of plant and zombie on grid]
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/e7464fba-12b6-4531-a236-d5ab56ad4061" width="300">
+</p>
 
 Now that we were able to get a basic display, we had to tackle evolving the plant and zombie to involve more complexity. We also began to work on the bullet entity. For the plant and zombie, we implemented health, taking damage, and attacks. We also implemented enabling inputs and positioning outputs. From these additions, we were able to include collision which is a key part of the game's functionality. This will be expanded on later in the project.
 
