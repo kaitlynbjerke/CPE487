@@ -101,11 +101,12 @@ ENTITY vga_grid IS
     );
 END ENTITY;
 ```
-Generics for vga_grid:
+Most of out logic, including interactions between the individual entities and pixel logic happened in this file.
+**Generics for vga_grid:**
 - square_size: defines the width and height of every square within the grid (in pixels)
 - line_thickness: specifies the thickness of the lining of the grid (in pixels)
 
-Inputs for vga_grid:
+**Inputs for vga_grid**
 - clk: the system clock, drives VGA timing logic and internal state machines
 - reset_n: active-low reset signal, resets the VGA controller and internal logic to a known initial state
 - btnl: input button used to move cursor left
@@ -115,7 +116,7 @@ Inputs for vga_grid:
 - btnd: input button used to move cursor down
 - hard: difficulty control input
 
-Outputs for vga_grid:
+**Outputs for vga_grid**
 - vga_r: 3-bit red color channel output for VGA
 - vga_g: 3-bit green color channel output for VGA
 - vga_b: 3-bit blue color channel output for VGA
@@ -142,13 +143,14 @@ Outputs for vga_grid:
         );
     END COMPONENT;
 ```
-Inputs for vga_sync:
+This entity was used primarily for timing and pixel management.
+**Inputs for vga_sync:**
 - pixel_clk: pixel clock used to drive VGA timing
 - red_in: 4-bit red color input for the current pixel
 - green_in: 4-bit green color input for the current pixel
 - blue_in: 4-bit blue color input for the current pixel
 
-Outputs for vga_sync:
+**Outputs for vga_sync:**
 - red_out: 4-bit red color output synchronized with VGA timing
 - green_out: 4-bit green color output synchronized with VGA timing
 - blue_out: 4-bit blue color output synchronized with VGA timing
@@ -178,7 +180,8 @@ Outputs for vga_sync:
         );
     END COMPONENT;
 ```
-Inputs for plant:
+This entity created both the walnut and peashooter plants and tracked their corresponding health.
+**Inputs for plant:**
 - v_sync: vertical synchronization signal from the VGA controller
 - pixel_row: current vertical pixel coordinate being drawn on the screen
 - pixel_col: current horizontal pixel coordinate being drawn on the screen
@@ -189,7 +192,7 @@ Inputs for plant:
 - start_y: vertical starting position of the plant (in pixels)
 - num: identifies plant instance
 
-Outputs for plant:
+**Outputs for plant:**
 - red: red color output for the plant at the current pixel location
 - green: green color output for the plant at the current pixel location
 - blue: blue color output for the plant at the current pixel location
@@ -214,7 +217,8 @@ COMPONENT bullet
         );
     END COMPONENT;
 ```
-Inputs for bullet:
+The entity created the bullet based on the location of the corresponding peashooter and was responsible for controlling its motion.
+**Inputs for bullet:**
 - v_sync: vertical synchronization signal from the VGA controller
 - pixel_row: current vertical pixel coordinate being drawn
 - pixel_col: current horizontal pixel coordinate being drawn
@@ -223,7 +227,7 @@ Inputs for bullet:
 - start_y: initial vertical position of the bullet in pixels
 - placed: indicates whether bullet has been placed
 
-Outputs for bullet:
+**Outputs for bullet:**
 - bullet_active: indicates whether the bullet is currently active
 - bullet_x_pos: current horizontal pixel position of the bullet
 - bullet_y_pos: current vertical pixel position of the bullet
@@ -257,7 +261,8 @@ Outputs for bullet:
         );
     END COMPONENT;
 ```
-Inputs for zombie:
+This entity created and moved the zombie on the screen. Additionally, it tracked hit_count in order to determine zombie health.
+**Inputs for zombie:**
 - v_sync: vertical synchronization signal from the VGA controller
 - pixel_row: current vertical pixel coordinate being drawn
 - pixel_col: current horizontal pixel coordinate being drawn
@@ -271,7 +276,7 @@ Inputs for zombie:
 - hard: difficulty control signal
 - started: indicates if the user has gotten past the start screen
 
-Outputs for zombie:
+**Outputs for zombie:**
 - red: red color output for the zombie at the current pixel location
 - green: green color output for the zombie at the current pixel location
 - blue: blue color output for the zombie at the current pixel location
