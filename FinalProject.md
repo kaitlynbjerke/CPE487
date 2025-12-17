@@ -7,7 +7,7 @@ A tower defense game, based on Plants Vs Zombies
 
 ## Introduction
 
-For our final project, we were tasked with creating a game using the VHDL language. This project allowed us to test our knowledge of VHDL while also expanding into topics that were not covered extensively in class. For our game, we decided to mimic the functional mechanics of Plants vs. Zombies. To recreate this concept, we developed a game titled **Circles vs. Squares**, where circles represent the plants and squares represent the zombies. Note: much of our code refers to the entities as plants and zombies, but to match what is displayed, the game is titled **Circles vs. Squares**!
+For our final project, we were tasked with creating a game using the VHDL language. This project allowed us to test our knowledge of VHDL while also expanding into topics that were not covered extensively in class. For our game, we decided to mimic the functional mechanics of Plants vs. Zombies. To recreate this concept, we developed a game titled **Circles vs. Squares**, as the intent was to create circles that represent the plants and squares that represent the zombies. However, we were able to successfully generate sprites of the zombies and the plants in order to create a more faithful replication of the game!
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/75d1800f-c6dc-4ded-8498-f81c6ad8458e" width="500">
@@ -307,7 +307,7 @@ That wrapped up the essential mechanics of the game. However, we still needed to
 
 ## Conclusion
 
-Ultimately, we had a lot of fun creating this project! We were able to truly evolve our understanding VHDL and go through the semesterly process of constantly wanting to pull our hair out. Certain jobs overlapped, but overall, Kaitlyn was responsible for sprites, much of the detailed game mechanics, the top file, and testing + debugging. Gianina was responsible for the background grid logic, the plant and bullet entities, the implementation of arrays to allow multiple plants to be stored, tracked, and rendered on the grid simultaneously, and ensuring they compiled successfully. Jacqueline was responsible for outlining game mechanics, the zombie entity, the random number generator (although not included in the final code), and the GitHub entry.
+Ultimately, we had a lot of fun creating this project! We were able to truly evolve our understanding VHDL and go through the semesterly process of constantly wanting to pull our hair out. Certain jobs overlapped, but overall, Kaitlyn was responsible for sprites, much of the detailed game mechanics (collisions, health, movement, game modes, title / end screens, peashooter / bullet synthesis), the top file, and testing + debugging. Gianina was responsible for the background grid logic, the plant and bullet entities, the implementation of arrays to allow multiple plants to be stored, tracked, and rendered on the grid simultaneously, and ensuring they compiled successfully. Jacqueline was responsible for outlining game mechanics, the zombie entity, the random number generator (although not included in the final code), and the GitHub entry.
 
 **Timeline**
 - November 11th - 14th: Brainstorming project ideas including the required functions and theoreticsl excecutions.
