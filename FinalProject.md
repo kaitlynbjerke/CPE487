@@ -47,19 +47,26 @@ The required hardware are listed below:
 - Computer with Vivado installed
 
 The required steps to set up the game are listed below:
-1. Download all necessary files (list of files)
-2. Connect computer to the Nexys A7-100T FPGA board using the micro USB cable
-3. Connect the Nexys A7-100T FPGA board to the monitor using the VGA cable
-4. Create new RTL project on Vivado
-5. For source files, add in all .vhd files
-6. For constraint files, add in all .xdc files
-7. For "Default Part", choose "Nexys A7-100T" under “Boards”
-8. Run synthesis
-9. Run implementation
-10. Generate bitstream
-11. Open the hardware manager
-12. Select "Open Target" and "Autoconnect"
-13. Select "Program Device" and click on xc7a100t_0
+1. Download all necessary files
+     - `vga_grid.vhd`
+     - `plant.vhd`
+     - `zombie.vhd`
+     - `bullet.vhd`
+     - `vga_timing.vhd`
+     - `clk_wiz_0.vhd`
+     - `clk_wiz_0_clk_wiz.vhd`
+3. Connect computer to the Nexys A7-100T FPGA board using the micro USB cable
+4. Connect the Nexys A7-100T FPGA board to the monitor using the VGA cable
+5. Create new RTL project on Vivado
+6. For source files, add in all .vhd files
+7. For constraint files, add in all .xdc files
+8. For "Default Part", choose "Nexys A7-100T" under “Boards”
+9. Run synthesis
+10. Run implementation
+11. Generate bitstream
+12. Open the hardware manager
+13. Select "Open Target" and "Autoconnect"
+14. Select "Program Device" and click on xc7a100t_0
 
 After performing all these steps, the game should be displayed on the monitor.
 
