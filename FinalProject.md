@@ -292,6 +292,11 @@ Nextly, we worked on getting the plant to move based on the user's input. This i
 
 As for the zombies, we had originally just one kind of zombie with a set speed. In order to add levels, we intended to use a random number generator to send zombies randomly towards the player, but due to short timing and limited testing conditions, we had to abandon the generator. Instead, we had created two levels for the user to play through. The first level included a slower speed and the ability to withstand 10 hits from projectiles, this was what we considered the easy level. The second level included slight faster zombies and the ability to withstand 15 hits from projectiles. The difference was activated using switch 0 to toggle between both modes.
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/9c8a7841-b836-4713-b4c3-64edd6bf81ce" width="600">
+</p>
+
+
 That wrapped up the essential mechanics of the game. However, we still needed to clean many bugs and add any last minute enhancements to the game. So, we fixed up shooter bugs, delayed attacks, and [idk another error]. In addition, we added our own sprites that gave the game a nice visual experience. These sprites included a zombie with its arms stretched out, a walnut-shaped plant, and a pea-headed plant. These characters mimic the Plants vs. Zombies characters our objects were inspired by. We did try to include a win-lose screen at the end as well as a proper reset, but we were not able to finish that function in time. 
 
 ---
