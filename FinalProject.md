@@ -55,18 +55,19 @@ The required steps to set up the game are listed below:
      - `vga_timing.vhd`
      - `clk_wiz_0.vhd`
      - `clk_wiz_0_clk_wiz.vhd`
-3. Connect computer to the Nexys A7-100T FPGA board using the micro USB cable
-4. Connect the Nexys A7-100T FPGA board to the monitor using the VGA cable
-5. Create new RTL project on Vivado
-6. For source files, add in all .vhd files
-7. For constraint files, add in all .xdc files
-8. For "Default Part", choose "Nexys A7-100T" under “Boards”
-9. Run synthesis
-10. Run implementation
-11. Generate bitstream
-12. Open the hardware manager
-13. Select "Open Target" and "Autoconnect"
-14. Select "Program Device" and click on xc7a100t_0
+2. Connect computer to the Nexys A7-100T FPGA board using the micro USB cable
+3. Connect the Nexys A7-100T FPGA board to the monitor using the VGA cable
+4. Create new RTL project on Vivado
+5. For source files, add in all .vhd files
+6. For constraint files, add in all .xdc files
+7. For "Default Part", choose "Nexys A7-100T" under “Boards”
+8. Run synthesis
+9. Run implementation
+10. Generate bitstream
+11. Open the hardware manager
+12. Select "Open Target" and "Autoconnect"
+13. Select "Program Device" and click on xc7a100t_0
+14. After the title screen appears, click btnc to start the game
 
 After performing all these steps, the game should be displayed on the monitor.
 
@@ -286,6 +287,14 @@ The __clk_wiz 0__ and __clk_wiz_0_clk_wiz__ remain unchanged from the files prov
 
 [project in action[
 
+## General Play Guide
+- Click btnc to start the game
+- Use Walnuts (the first plant to appear) and block the zombies and peashooters to attack!
+- Utilize btnu, btnl, btnr, and btnd to control the location of the enabled plant
+- Press btnc once you are satisfied with plant position to lock it in place (and get a new plant!)
+- Continue placing plants until there are none left (top left corner stops generating new plants)
+- Watch the game like a movie! If you win, a screen saying "You Win" will appear and the H17 light on the board will turn on. If you lose, a screen saying "You Lose" will appear.
+
 ## The Process
 
 Although we used some logic from previous labs, we did not do a continuation project and instead made this game from scratch. To begin, we assessed the various aspects of the original game we needed to implement into our game as listed in the **Introduction**. In order to match the same game mechanics, we decided to begin with creating a grid on the screen. This grid functions to easily display where the plants can be placed, outlines the path the zombie and bullet will travel through, and generally matches the background of the original game. This initial grid showed to be a big obstacle for us. At first, it would not display on the screen, and it came out a bit wonky when it did eventually display. Meanwhile, the initial plant entity and zombie entity were being created as to not fall too behind with the grid. Since these three were done individually, we found there to be many inconsistencies with sizes, speeds, colors, etc. This impacted the functionality of the game. 
@@ -312,16 +321,17 @@ As for the zombies, we had originally just one kind of zombie with a set speed. 
 </p>
 
 
-That wrapped up the essential mechanics of the game. However, we still needed to clean many bugs and add any last minute enhancements to the game. So, we fixed up shooter bugs and delayed attacks. Additionally, we added our own sprites that gave the game a nice visual experience. These sprites included a zombie with its arms stretched out, a walnut-shaped plant, and a pea-headed plant. These characters mimic the Plants vs. Zombies characters our objects were inspired by. We also included win/lose screens after the game ended. On top of this, we utilized light H17 on the Nexys board in order to give players a second visual cue that they won in case they were looking at the board instead of the monitor (light on --> game win). Finally, we added a simple screen at the start that says "PZ" (Plants vs. Zombies). At this start screen, users should press btnc to actually start the game. We intended to also implement a "reset" functionality so users could restart the game without actually restarting the code, but we did not complete that step.
+That wrapped up the essential mechanics of the game. However, we still needed to clean many bugs and add any last minute enhancements to the game. So, we fixed up shooter bugs and delayed attacks. Additionally, we added our own sprites that gave the game a nice visual experience using bit maps. These sprites included a zombie with its arms stretched out, a walnut-shaped plant, and a pea-headed plant. These characters mimic the Plants vs. Zombies characters our objects were inspired by. We also included win/lose screens after the game ended. On top of this, we utilized light H17 on the Nexys board in order to give players a second visual cue that they won in case they were looking at the board instead of the monitor (light on --> game win). Finally, we added a simple screen at the start that says "PZ" (Plants vs. Zombies). At this start screen, users should press btnc to actually start the game. We intended to also implement a "reset" functionality so users could restart the game without actually restarting the code, but we did not complete that step.
 
 ---
 
 ## Conclusion
 
+**Responsibilities**
 Ultimately, we had a lot of fun creating this project! We were able to truly evolve our understanding VHDL and go through the semesterly process of constantly wanting to pull our hair out. Certain jobs overlapped, but overall: 
-* Kaitlyn was responsible for sprites, much of the detailed game mechanics (collisions, health, movement, game modes, title / end screens, peashooter / bullet synthesis), the top file, and testing + debugging.
+* Kaitlyn was responsible for sprites, much of the detailed game mechanics (collisions, health, movement, game modes, title / end screens, peashooter / bullet synthesis), the top file, and testing + debugging. She had the board, so she was responsible for much of the code finalization.
 * Gianina was responsible for the background grid logic, the initial plant and bullet entities, and testing different iterations of the code until it successfully compiled. She also explored using arrays for entity management, but it was later opted to have multiple instances of the game entities in the final version to ensure better hardware stability. 
-* Jacqueline was responsible for outlining game mechanics, the zombie entity, the random number generator (although not included in the final code), and the GitHub entry.
+* Jacqueline was responsible for outlining game mechanics, the zombie entity, the random number generator (although not included in the final code), and much of the GitHub entry.
 
 **Timeline**
 - November 11th - 14th: Brainstorming project ideas including the required functions and theoretical executions.
@@ -332,6 +342,7 @@ Ultimately, we had a lot of fun creating this project! We were able to truly evo
 - December 8th - 12th: More game mechanics are implemented, continued testing and debugging.
 - December 13th - 17th: Last minute additions and final touch ups.
 
+**Challenges**
 We did encounter tons of challenges when creating this game. One of our most time-consuming hurdles was getting the grid to show up correctly with the plant entity on top of it. We tried various types of grids and different approaches, but ultimately what ended up working for us was implementing a color priority system. To achieve this, we had to refactor our grid logic by declaring **hmod** and **vmod** as variables rather than signals. Using signals for the modulo math (which tracks the pixel position inside a grid square) kept crashing our synthesis, so switching to variables was the key to stability.
 
 From there, we built a layered rendering process: the grid acts as the base layer, followed by plants, and finally zombies taking priority over everything else. This was made possible by using intermediate color signals and a VGA sync module to properly coordinate all the visual elements. While the plant entity did display on top of the grid, it often clashed with the grid background, causing flickering lines or misalignment. We later learned that was because we had hard-coded a specific 'step size' for the plant entity to handle user input, and that size conflicted with the actual dimensions of the grid squares. Once we synchronized the movement increments with the grid's square size, the plant finally snapped into place and the flickering lines disappeared. 
