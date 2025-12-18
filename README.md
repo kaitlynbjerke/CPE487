@@ -1,5 +1,6 @@
 # Circles vs. Squares - CPE 487 Final Project
 **By Kaitlyn Bjerke, Jacqueline Castro, and Gianina Maldonado**
+
 *We pledge our honor that we have abided by the Stevens honor system*
 
 A tower defense game, based on Plants Vs Zombies
