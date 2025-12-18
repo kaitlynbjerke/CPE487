@@ -344,6 +344,7 @@ That wrapped up the essential mechanics of the game. However, we still needed to
 ## Conclusion
 
 **Responsibilities**
+
 Ultimately, we had a lot of fun creating this project! We were able to truly evolve our understanding VHDL and go through the semesterly process of constantly wanting to pull our hair out. Certain jobs overlapped, but overall: 
 * Kaitlyn was responsible for sprites, much of the detailed game mechanics (collisions, health, movement, game modes, title / end screens, peashooter / bullet synthesis), the top file, and testing + debugging. She had the board, so she was responsible for much of the code finalization.
 * Gianina was responsible for the background grid logic, the initial plant and bullet entities, and testing different iterations of the code until it successfully compiled. She also explored using arrays for entity management, but it was later opted to have multiple instances of the game entities in the final version to ensure better hardware stability. 
@@ -359,6 +360,7 @@ Ultimately, we had a lot of fun creating this project! We were able to truly evo
 - December 13th - 17th: Last minute additions and final touch ups.
 
 **Challenges**
+
 We did encounter tons of challenges when creating this game. One of our most time-consuming hurdles was getting the grid to show up correctly with the plant entity on top of it. We tried various types of grids and different approaches, but ultimately what ended up working for us was implementing a color priority system. To achieve this, we had to refactor our grid logic by declaring **hmod** and **vmod** as variables rather than signals. Using signals for the modulo math (which tracks the pixel position inside a grid square) kept crashing our synthesis, so switching to variables was the key to stability.
 
 From there, we built a layered rendering process: the grid acts as the base layer, followed by plants, and finally zombies taking priority over everything else. This was made possible by using intermediate color signals and a VGA sync module to properly coordinate all the visual elements. While the plant entity did display on top of the grid, it often clashed with the grid background, causing flickering lines or misalignment. We later learned that was because we had hard-coded a specific 'step size' for the plant entity to handle user input, and that size conflicted with the actual dimensions of the grid squares. Once we synchronized the movement increments with the grid's square size, the plant finally snapped into place and the flickering lines disappeared. 
