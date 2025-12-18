@@ -347,7 +347,7 @@ That wrapped up the essential mechanics of the game. However, we still needed to
 
 Ultimately, we had a lot of fun creating this project! We were able to truly evolve our understanding VHDL and go through the semesterly process of constantly wanting to pull our hair out. Certain jobs overlapped, but overall: 
 * Kaitlyn was responsible for sprites, much of the detailed game mechanics (collisions, health, movement, game modes, title / end screens, peashooter / bullet synthesis), the top file, and testing + debugging. She had the board, so she was responsible for much of the code finalization.
-* Gianina was responsible for the background grid logic, the initial plant and bullet entities, and testing different iterations of the code until it successfully compiled. She also explored using arrays for entity management, but it was later opted to have multiple instances of the game entities in the final version to ensure better hardware stability. 
+* Gianina was responsible for the background grid logic, the initial plant and bullet entities, and testing various iterations of the code to verify they worked as intended. She also explored using arrays for entity management, but it was later opted to have multiple instances of the game entities in the final version to ensure better hardware stability. 
 * Jacqueline was responsible for outlining game mechanics, the zombie entity, the random number generator (although not included in the final code), and much of the GitHub entry.
 
 **Timeline**
