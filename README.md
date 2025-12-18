@@ -296,7 +296,8 @@ The __clk_wiz 0__ and __clk_wiz_0_clk_wiz__ remain unchanged from the files prov
 ---
 ## Project in Action!
 
-[project in action[
+The following link shows our code in action: [Plants vs. Zombies](https://drive.google.com/file/d/1lnwoy-GHhHrTHz02XMLq_n7hOfmM9FFV/view?usp=drive_link)
+As seen above, there is a title screen, actual game action (in which zombies attack plants that the users place), and an end game screen.
 
 ## General Play Guide
 - Click btnc to start the game
