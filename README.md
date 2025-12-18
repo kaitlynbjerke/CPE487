@@ -297,6 +297,7 @@ The __clk_wiz 0__ and __clk_wiz_0_clk_wiz__ remain unchanged from the files prov
 ## Project in Action!
 
 The following link shows our code in action: [Plants vs. Zombies](https://drive.google.com/file/d/1lnwoy-GHhHrTHz02XMLq_n7hOfmM9FFV/view?usp=drive_link)
+
 As seen above, there is a title screen, actual game action (in which zombies attack plants that the users place), and an end game screen.
 
 ## General Play Guide
@@ -326,7 +327,7 @@ Now that we were able to get a basic display, we had to tackle evolving the plan
 
 Next, we worked on getting the plant to move based on the user's input. This is where the btnl, btnr, btnu, btnd, and btnc button come into play as the user chooses where to place their defenses. We had to make sure that when the user was moving the plant in multiple directions, the plant was moving a whole grid square, not just a pixel. Moreover, when the user had chosen where they wished to place their plant, the btnc button confirms their position. But, we needed to implement multiple plants, so after the user sets down a plant, the user can immediately place down another plant. This is where we were able to create two types of plants. The first plant is the walnut, which the user is given first and it essentially acts as a buffer or wall, it does not cause damage to the zombies. The second plant is the pea shooter, which is the plant that actually causes damage to the zombies. Both the pea shooter and walnut are able to withstand 3 hits before dying. There were many bumps when creating these objects including timing errors, visual errors, and control bugs. 
 
-As for the zombies, we had originally just one kind of zombie with a set speed. In order to add levels, we intended to use a random number generator to send zombies randomly towards the player, but due to short timing and limited testing conditions, we had to abandon the generator. Instead, we had created two levels for the user to play through. The first level included a slower speed and the ability to withstand 10 hits from projectiles, this was what we considered the easy level. The second level included slightly faster zombies and the ability to withstand 15 hits from projectiles. The difference was activated using Switch 3 to toggle between both modes.
+As for the zombies, we had originally just one kind of zombie with a set speed. In order to add levels, we intended to use a random number generator to send zombies randomly towards the player, but due to short timing and limited testing conditions, we had to abandon the generator. Instead, we had created two levels for the user to play through. The first level included a slower speed and the ability to withstand 10 hits from projectiles, this was what we considered the easy level. The second level included slightly faster zombies (which were pink) and the ability to withstand 15 hits from projectiles. The difference was activated using Switch 3 to toggle between both modes and could be changed in the middle of a match.
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/9c8a7841-b836-4713-b4c3-64edd6bf81ce" width="600">
