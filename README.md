@@ -104,6 +104,7 @@ ENTITY vga_grid IS
 END ENTITY;
 ```
 Most of out logic, including interactions between the individual entities and pixel logic happened in this file.
+
 **Generics for vga_grid:**
 - square_size: defines the width and height of every square within the grid (in pixels)
 - line_thickness: specifies the thickness of the lining of the grid (in pixels)
@@ -146,6 +147,7 @@ Most of out logic, including interactions between the individual entities and pi
     END COMPONENT;
 ```
 This entity was used primarily for timing and pixel management.
+
 **Inputs for vga_sync:**
 - pixel_clk: pixel clock used to drive VGA timing
 - red_in: 4-bit red color input for the current pixel
@@ -183,6 +185,7 @@ This entity was used primarily for timing and pixel management.
     END COMPONENT;
 ```
 This entity created both the walnut and peashooter plants and tracked their corresponding health.
+
 **Inputs for plant:**
 - v_sync: vertical synchronization signal from the VGA controller
 - pixel_row: current vertical pixel coordinate being drawn on the screen
@@ -227,6 +230,7 @@ COMPONENT bullet
     END COMPONENT;
 ```
 The entity created the bullet based on the location of the corresponding peashooter and was responsible for controlling its motion.
+
 **Inputs for bullet:**
 - v_sync: vertical synchronization signal from the VGA controller
 - pixel_row: current vertical pixel coordinate being drawn
@@ -271,6 +275,7 @@ The entity created the bullet based on the location of the corresponding peashoo
     END COMPONENT;
 ```
 This entity created and moved the zombie on the screen. Additionally, it tracked hit_count in order to determine zombie health.
+
 **Inputs for zombie:**
 - v_sync: vertical synchronization signal from the VGA controller
 - pixel_row: current vertical pixel coordinate being drawn
