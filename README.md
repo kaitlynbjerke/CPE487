@@ -311,7 +311,7 @@ As seen above, there is a title screen, actual game action (in which zombies att
 - Continue placing plants until there are none left (top left corner stops generating new plants)
 - Watch the game like a movie! If you win, a screen saying "You Win" will appear and the H17 light on the board will turn on. If you lose, a screen saying "You Lose" will appear.
 
-## The Process
+## The Process / Our Modifications
 
 Although we used some logic from previous labs, we did not do a continuation project and instead made this game from scratch. To begin, we assessed the various aspects of the original game we needed to implement into our game as listed in the **Introduction**. In order to match the same game mechanics, we decided to begin with creating a grid on the screen. This grid functions to easily display where the plants can be placed, outlines the path the zombie and bullet will travel through, and generally matches the background of the original game. This initial grid showed to be a big obstacle for us. At first, it would not display on the screen, and it came out a bit wonky when it did eventually display. Meanwhile, the initial plant entity and zombie entity were being created as to not fall too behind with the grid. Since these three were done individually, we found there to be many inconsistencies with sizes, speeds, colors, etc. This impacted the functionality of the game. 
 
