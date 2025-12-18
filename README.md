@@ -205,6 +205,7 @@ This entity created both the walnut and peashooter plants and tracked their corr
 </p>
 The above image highlights the fact that a plant can simultaneously be moved AND experience collisions. In future iterations of the code, we would edit this functionality in order to ensure that damage could only be inflicted upon plants after they are placed.
 
+
 **bullet**
 ```
 COMPONENT bullet
